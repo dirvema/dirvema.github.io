@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="编程的艺术">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Computer&Program的艺术">
 <title>Categories</title>
 
 <link rel='canonical' href='https://dirvema.github.io/categories/'>
 
 <link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="Categories">
-<meta property='og:description' content="编程的艺术">
+<meta property='og:description' content="Computer&Program的艺术">
 <meta property='og:url' content='https://dirvema.github.io/categories/'>
 <meta property='og:site_name' content='洲的Blog'>
 <meta property='og:type' content='website'><meta property='og:updated_time' content=' 2024-03-09T00:00:00&#43;00:00 '/>
 <meta name="twitter:title" content="Categories">
-<meta name="twitter:description" content="编程的艺术"><link rel="alternate" type="application/rss&#43;xml" href="https://dirvema.github.io/categories/index.xml">
+<meta name="twitter:description" content="Computer&Program的艺术"><link rel="alternate" type="application/rss&#43;xml" href="https://dirvema.github.io/categories/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -73,7 +73,7 @@
         
         <div class="site-meta">
             <h1 class="site-name"><a href="/">洲的Blog</a></h1>
-            <h2 class="site-description">编程艺术学</h2>
+            <h2 class="site-description">The Art of Programming</h2>
         </div>
     </header><ol class="menu-social">
             
@@ -460,5 +460,26 @@
     }());
 </script>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+<div id="aplayer"></div>
+
+<script>
+    const home = "https://dirvema.github.io/";
+    console.log(home);
+    const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        audio: [{
+            name: 'Head In The Clouds',
+            artist: 'Hayd',
+            url: home + 'music/Head In The Clouds/song.mp3',
+            cover: home + 'music/Head In The Clouds/cover.jpg'
+        },{
+
+            
+        }]
+    });
+</script>
     </body>
 </html>
