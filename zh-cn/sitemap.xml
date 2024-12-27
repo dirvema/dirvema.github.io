@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dirvema.github.io/</loc>
-    <lastmod>2024-12-26T20:06:05+08:00</lastmod>
+    <lastmod>2024-12-27T19:29:43+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -20,11 +20,11 @@
                 href="https://dirvema.github.io/"
                 />
   </url><url>
-    <loc>https://dirvema.github.io/p/cpphistory/</loc>
-    <lastmod>2024-12-26T20:06:05+08:00</lastmod>
+    <loc>https://dirvema.github.io/p/linux/</loc>
+    <lastmod>2024-12-27T19:29:43+08:00</lastmod>
   </url><url>
     <loc>https://dirvema.github.io/post/</loc>
-    <lastmod>2024-12-26T20:06:05+08:00</lastmod>
+    <lastmod>2024-12-27T19:29:43+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -40,6 +40,9 @@
                 hreflang="zh-cn"
                 href="https://dirvema.github.io/post/"
                 />
+  </url><url>
+    <loc>https://dirvema.github.io/p/cpphistory/</loc>
+    <lastmod>2024-12-26T20:06:05+08:00</lastmod>
   </url><url>
     <loc>https://dirvema.github.io/categories/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
