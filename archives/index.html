@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://dirvema.github.io/archives/'>
 
-<link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="归档">
+<link rel="stylesheet" href="/scss/style.min.f60936f07d4fceaef9c30b8654af3405d8da99eed5b74695a5da7fd3c69f933c.css"><meta property='og:title' content="归档">
 <meta property='og:description' content="">
 <meta property='og:url' content='https://dirvema.github.io/archives/'>
 <meta property='og:site_name' content='洲的Blog'>
@@ -481,7 +481,7 @@
     
     <section class="powerby">
         
-            昔我往矣，杨柳依依。今我来思，雨雪霏霏 <br/>
+            昔我往矣，杨柳依依。今我来思，雨雪霏霏。 <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
@@ -507,7 +507,7 @@
     }());
 </script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 
 <div id="aplayer"></div>
@@ -517,16 +517,78 @@
     console.log(home);
     const ap = new APlayer({
         container: document.getElementById('aplayer'),
+        fixed: true,
+        volume: 0.5,
+        listMaxHeight: '90px',
+        lrcType: 3,
         audio: [{
+            name: 'Melody',
+             artist: '陶喆',
+             url: home + 'music/Melody/song.mp3',
+             cover: home + 'music/Melody/cover.jpg',
+             lrc: home + 'music/Melody/lyric.lrc'
+        }, {
+            name: '茉莉雨',
+            artist: '林俊杰',
+            url: home + 'music/茉莉雨/song.mp3',
+            cover: home + 'music/茉莉雨/cover.jpg',
+            lrc: home + 'music/茉莉雨/lyric.lrc'
+        },{
             name: 'Head In The Clouds',
             artist: 'Hayd',
             url: home + 'music/Head In The Clouds/song.mp3',
-            cover: home + 'music/Head In The Clouds/cover.jpg'
-        },{
-
-            
-        }]
+            cover: home + 'music/Head In The Clouds/cover.jpg',
+            lrc: home + 'music/Head In The Clouds/lyric.lrc'
+        }
+    ]
     });
+
+    
+
+    window.onbeforeunload = () => {
+        
+        const playInfo = {
+            index: ap.list.index,
+            currentTime: ap.audio.currentTime,
+            paused: ap.paused
+        };
+        localStorage.setItem("playInfo", JSON.stringify(playInfo));
+    };
+
+    
+
+    window.onload = () => {
+        
+        const playInfo = JSON.parse(localStorage.getItem("playInfo"));
+        if (!playInfo) {
+            return;
+        }
+        
+        ap.list.switch(playInfo.index);
+        
+        setTimeout(() => {
+            
+            ap.seek(playInfo.currentTime);
+            
+            if (!playInfo.paused) {
+                ap.play()
+            }
+        }, 500);
+    };
+
+
 </script>
+
+
+<style>
+    body {
+      background: url(https://dirvema.github.io/background/bg1.jpg) no-repeat center top;
+      background-size: cover;
+      background-attachment: fixed;
+      
+
+    }
+  </style>
+  
     </body>
 </html>
