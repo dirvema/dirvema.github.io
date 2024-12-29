@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://dirvema.github.io/categories/git/'>
 
-<link rel="stylesheet" href="/scss/style.min.6c221288d36fb932f95e5525a020024bb6f0b82ed7bee230c6a136ba92735deb.css"><meta property='og:title' content="Category: Git - 洲的Blog">
+<link rel="stylesheet" href="/scss/style.min.f288ca1c2425960912d20d2052341441f474468adacb723fb7a0ffb4bfda8a38.css"><meta property='og:title' content="Category: Git - 洲的Blog">
 <meta property='og:description' content="Computer&Program的艺术">
 <meta property='og:url' content='https://dirvema.github.io/categories/git/'>
 <meta property='og:site_name' content='洲的Blog'>
@@ -291,7 +291,7 @@
                     <a href="/archives/#2024">
                         
                             <span class="year">2024</span>
-                            <span class="count">3</span>
+                            <span class="count">5</span>
                         
                     </a> 
                 </div>
@@ -299,7 +299,7 @@
                     <a href="/archives/#2019">
                         
                             <span class="year">2019</span>
-                            <span class="count">2</span>
+                            <span class="count">3</span>
                         
                     </a> 
                 </div>
@@ -346,21 +346,29 @@
                 Linux
             </a>
         
+            <a href="/categories/markdown/" class="font_size_1">
+                Markdown
+            </a>
+        
             <a href="/categories/os/" class="font_size_1">
                 OS
+            </a>
+        
+            <a href="/categories/syntax/" class="font_size_1">
+                Syntax
             </a>
         
             <a href="/categories/test/" class="font_size_1">
                 Computer Science
             </a>
         
+            <a href="/categories/themes/" class="font_size_1">
+                Themes
+            </a>
+        
     </div>
 </section>
 
-            
-        
-            
-                
             
         
     </aside>
@@ -408,19 +416,54 @@
     </section>
 <footer class="site-footer">
     <section class="copyright">
-        &copy; 
+        &copy;
         
         2024 Diverma-马英洲-东南大学
+
+        <br>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <br>
+        <span id="voyager">载入旅行者一号离地球距离信息...</span>
+        <script language="javascript">
+            var now = new Date();
+            function createtime() {
+                now.setTime(now.getTime() + 250); 
+                var grt = new Date("2024/1/1 00:00:00"); 
+                days = (now - grt) / 1000 / 60 / 60 / 24;
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+                hnum = Math.floor(hours);
+                if (String(hnum).length == 1) { hnum = "0" + hnum; }
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if (String(mnum).length == 1) { mnum = "0" + mnum; }
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if (String(snum).length == 1) { snum = "0" + snum; }
+
+                document.getElementById("timeDate").innerHTML = "本站已稳定运行：" + dnum + " 天 ";
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"
+                var start = new Date("08/01/2022 00:00:00"); 
+                var dis = Math.trunc(23400000000 + ((now - start) / 1000) * 17); 
+                var unit = (dis / 149600000).toFixed(6);  
+
+                document.getElementById("voyager").innerHTML = "旅行者 1 号当前距离地球 " + dis + " 千米，约为 " + unit + " 个天文单位 🚀"
+            }
+            setInterval("createtime()", 250); 
+        </script>
+
+
+
     </section>
-    
+
     <section class="powerby">
         
-            昔我往矣，杨柳依依。今我来思，雨雪霏霏。 <br/>
-        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        <span style="color: rgb(255, 255, 255); font-weight: bold;"> 昔我往矣，杨柳依依。今我来思，雨雪霏霏。 <br /> </span>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener" >Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
-
 
             </main>
         </div>
@@ -440,6 +483,8 @@
         document.head.appendChild(customFont);
     }());
 </script>
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
@@ -467,13 +512,32 @@
             url: home + 'music/茉莉雨/song.mp3',
             cover: home + 'music/茉莉雨/cover.jpg',
             lrc: home + 'music/茉莉雨/lyric.lrc'
-        },{
+        }, {
+            name: '夜曲',
+            artist: '周杰伦',
+            url: home + 'music/夜曲/song.mp3',
+            cover: home + 'music/夜曲/cover.jpeg',
+            lrc: home + 'music/夜曲/lyric.lrc'
+        }, {
+            name: '幻听',
+            artist: '许嵩',
+            url: home + 'music/幻听/song.mp3',
+            cover: home + 'music/幻听/cover.jpeg',
+            lrc: home + 'music/幻听/lyric.lrc'
+        }, {
+            name: '春娇与志明',
+            artist: '街道办GDC&欧阳耀莹',
+            url: home + 'music/春娇与志明/song.mp3',
+            cover: home + 'music/春娇与志明/cover.jpg',
+            lrc: home + 'music/春娇与志明/lyric.lrc'
+        }, {
             name: 'Head In The Clouds',
             artist: 'Hayd',
             url: home + 'music/Head In The Clouds/song.mp3',
             cover: home + 'music/Head In The Clouds/cover.jpg',
             lrc: home + 'music/Head In The Clouds/lyric.lrc'
         }
+
     ]
     });
 
@@ -513,7 +577,6 @@
 
 </script>
 
-
 <style>
     body {
       background: url(https://dirvema.github.io/background/bg1.jpg) no-repeat center top;
@@ -523,6 +586,24 @@
 
     }
   </style>
+
+  
+<script src="https://npm.elemecdn.com/nprogress@0.2.0/nprogress.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://npm.elemecdn.com/nprogress@0.2.0/nprogress.css" crossorigin="anonymous" />
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+
+
+
+
+
+
+
   
     </body>
 </html>
