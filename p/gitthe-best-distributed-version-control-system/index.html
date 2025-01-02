@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Git的基本使用">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="企业开发中的Git工作流">
 <title>Git：The best distributed version control system</title>
 
 <link rel='canonical' href='https://dirvema.github.io/p/gitthe-best-distributed-version-control-system/'>
 
 <link rel="stylesheet" href="/scss/style.min.ba2411a9055192105a39140fede032e2c5d9eed1df7f8540368e51882bdfcd37.css"><meta property='og:title' content="Git：The best distributed version control system">
-<meta property='og:description' content="Git的基本使用">
+<meta property='og:description' content="企业开发中的Git工作流">
 <meta property='og:url' content='https://dirvema.github.io/p/gitthe-best-distributed-version-control-system/'>
 <meta property='og:site_name' content='洲的Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='markdown' /><meta property='article:tag' content='css' /><meta property='article:tag' content='html' /><meta property='article:tag' content='themes' /><meta property='article:published_time' content='2024-02-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-02-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://dirvema.github.io/p/gitthe-best-distributed-version-control-system/cinque-terre-4520509.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-12-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-12-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://dirvema.github.io/p/gitthe-best-distributed-version-control-system/cinque-terre-4520509.jpg' />
 <meta name="twitter:title" content="Git：The best distributed version control system">
-<meta name="twitter:description" content="Git的基本使用"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="企业开发中的Git工作流"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://dirvema.github.io/p/gitthe-best-distributed-version-control-system/cinque-terre-4520509.jpg' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -271,64 +271,24 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#headings">Headings</a></li>
-  </ol>
-
-  <ol>
-    <li><a href="#h2">H2</a>
+    <li><a href="#git概述">Git概述</a></li>
+    <li><a href="#git的基本使用">Git的基本使用</a>
       <ol>
-        <li><a href="#h3">H3</a>
+        <li><a href="#git工作区暂存区和版本库">git工作区、暂存区和版本库</a></li>
+        <li><a href="#git常用的基本操作命令">git常用的基本操作命令</a></li>
+        <li><a href="#git各阶段版本回退命令">git各阶段版本回退命令</a></li>
+        <li><a href="#团队中代码提交冲突的解决方案">团队中代码提交冲突的解决方案</a></li>
+        <li><a href="#git分支版本控制命令">git分支版本控制命令</a>
           <ol>
-            <li><a href="#h4">H4</a></li>
+            <li><a href="#本地分支管理">本地分支管理</a></li>
+            <li><a href="#合并分支冲突">合并分支冲突</a></li>
+            <li><a href="#远程分支管理">远程分支管理</a></li>
           </ol>
         </li>
       </ol>
     </li>
-    <li><a href="#paragraph">Paragraph</a></li>
-    <li><a href="#blockquotes">Blockquotes</a>
-      <ol>
-        <li>
-          <ol>
-            <li><a href="#blockquote-without-attribution">Blockquote without attribution</a></li>
-            <li><a href="#blockquote-with-attribution">Blockquote with attribution</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#tables">Tables</a>
-      <ol>
-        <li>
-          <ol>
-            <li><a href="#inline-markdown-within-tables">Inline Markdown within tables</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#code-blocks">Code Blocks</a>
-      <ol>
-        <li>
-          <ol>
-            <li><a href="#code-block-with-backticks">Code block with backticks</a></li>
-            <li><a href="#code-block-indented-with-four-spaces">Code block indented with four spaces</a></li>
-            <li><a href="#code-block-with-hugos-internal-highlight-shortcode">Code block with Hugo&rsquo;s internal highlight shortcode</a></li>
-            <li><a href="#diff-code-block">Diff code block</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#list-types">List Types</a>
-      <ol>
-        <li>
-          <ol>
-            <li><a href="#ordered-list">Ordered List</a></li>
-            <li><a href="#unordered-list">Unordered List</a></li>
-            <li><a href="#nested-list">Nested list</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#other-elements--abbr-sub-sup-kbd-mark">Other Elements — abbr, sub, sup, kbd, mark</a></li>
-    <li><a href="#hyperlinked-image">Hyperlinked image</a></li>
+    <li><a href="#gitignore">gitignore</a></li>
+    <li><a href="#企业开发中git的工作流">企业开发中Git的工作流</a></li>
   </ol>
 </nav>
         </div>
@@ -377,7 +337,7 @@
     
         
         <h3 class="article-subtitle">
-            Git的基本使用
+            企业开发中的Git工作流
         </h3>
         
     </div>
@@ -398,7 +358,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2024-02-01</time>
+                <time class="article-time--published">2024-12-01</time>
             </div>
         
 
@@ -413,7 +373,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 12 分钟
                 </time>
             </div>
         
@@ -428,246 +388,409 @@
     <section class="article-content">
     
     
-    <p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.</p>
-<h2 id="headings">Headings
-</h2><p>The following HTML <code>&lt;h1&gt;</code>—<code>&lt;h6&gt;</code> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level while <code>&lt;h6&gt;</code> is the lowest.</p>
-<h1 id="h1">H1
-</h1><h2 id="h2">H2
-</h2><h3 id="h3">H3
-</h3><h4 id="h4">H4
-</h4><h5 id="h5">H5
-</h5><h6 id="h6">H6
-</h6><h2 id="paragraph">Paragraph
-</h2><p>Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.</p>
-<p>Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.</p>
-<h2 id="blockquotes">Blockquotes
-</h2><p>The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a <code>footer</code> or <code>cite</code> element, and optionally with in-line changes such as annotations and abbreviations.</p>
-<h4 id="blockquote-without-attribution">Blockquote without attribution
-</h4><blockquote>
-<p>Tiam, ad mint andaepu dandae nostion secatur sequo quae.
-<strong>Note</strong> that you can use <em>Markdown syntax</em> within a blockquote.</p>
+    <h2 id="git概述">Git概述
+</h2><p>Git 诞生于一个极富纷争大举创新的年代。Linux 内核开源项目有着为数众多的参与者。 绝大多数的 Linux 内核维护工作都花在了提交补丁和保存归档的繁琐事务上（1991－2002年间）。 到 2002 年，整个项目组开始启用一个专有的分布式版本控制系统BitKeeper来管理和维护代码。</p>
+<p>到了 2005 年，开发BitKeeper的商业公司同Linux内核开源社区的合作关系结束，他们收回了Linux内核社区免费使用BitKeeper的权力。 这就迫使Linux开源社区（特别是Linux的缔造者Linus Torvalds）基于使用BitKeeper时的经验教训，开发出自己的版本系统。他们对新的系统制订了若干目标：</p>
+<ul>
+<li>高速、简单</li>
+<li>对非线性开发模式的强力支持（允许成千上万个并行开发的分支）</li>
+<li>完全分布式</li>
+<li>有能力高效管理类似Linux内核一样的超大规模项目（速度和数据量）</li>
+</ul>
+<p><strong>集中式版本控制系统 <em>vs</em> 分布式版本控制系统</strong></p>
+<ul>
+<li>
+<p>集中式版本控制系统，例如SVN，版本库是集中放在中央服务器的，而开发人员工作的时候，用的都是自己的电脑，所以首先要从中央服务器下载最新的版本，然后开发，开发完后，需要把自己开发的代码提交到中央服务器。集中式版本控制工具 的缺点：服务器单点故障问题、容错性较差。</p>
+</li>
+<li>
+<p>分布式版本控制系统（Distributed Version Control System，简称 DVCS） ，例如免费开源的Git。分为两种类型的仓库：本地仓库和远程仓库。对比SVN集中式版本控制系统，分布式不受网络环境的限制。本地仓库：是在开发人员自己电脑上的Git仓库；远程仓库：是在远程服务器上的Git仓库</p>
+</li>
+</ul>
+<p>Git与SVN的区别：</p>
+<blockquote>
+<ol>
+<li>
+<p><strong>Git 是分布式的，SVN 不是</strong>：这是 Git 和其它非分布式的版本控制系统，例如 SVN，CVS 等，最核心的区别。</p>
+</li>
+<li>
+<p><strong>Git 把内容按元数据方式存储，而 SVN 是按文件</strong>：所有的资源控制系统都是把文件的元信息隐藏在一个类似 .svn、.cvs 等的文件夹里。</p>
+</li>
+<li>
+<p><strong>Git 分支和 SVN 的分支不同</strong>：分支在 SVN 中一点都不特别，其实它就是版本库中的另外一个目录。</p>
+</li>
+<li>
+<p><strong>Git 没有一个全局的版本号，而 SVN 有</strong>：目前为止这是跟 SVN 相比 Git 缺少的最大的一个特征。</p>
+</li>
+<li>
+<p><strong>Git 的内容完整性要优于 SVN</strong>：Git 的内容存储使用的是 SHA-1 哈希算法。这能确保代码内容的完整性，确保在遇到磁盘故障和网络问题时降低对版本库的破坏。</p>
+</li>
+</ol>
 </blockquote>
-<h4 id="blockquote-with-attribution">Blockquote with attribution
-</h4><blockquote>
-<p>Don&rsquo;t communicate by sharing memory, share memory by communicating.<br>
-— <cite>Rob Pike<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></cite></p>
+<img src="1.jpg" style="margin: auto; display: block; zoom: 80%;" />
+<p><strong>Git代码托管服务</strong>：Git中存在两种类型的仓库，即本地仓库和远程仓库。那么如何搭建Git远程仓库呢？我们可以借助一些代码托管服务来实现，其中比较常用的有GitHub、Gitee、GitLab等。</p>
+<ol>
+<li>
+<p>gitHub（ 地址： <a class="link" href="https://github.com/"  target="_blank" rel="noopener"
+    >https://github.com/</a> ）是一个面向开源及私有软件项目的托管平台，因为只支持Git 作为唯一的版本库格式进行托管，故名gitHub。</p>
+</li>
+<li>
+<p>码云（地址： <a class="link" href="https://gitee.com/"  target="_blank" rel="noopener"
+    >https://gitee.com/</a> ）是国内的一个代码托管平台，由于服务器在国内，所以相比于GitHub，码云速度会更快。</p>
+</li>
+<li>
+<p>GitLab （地址： <a class="link" href="https://about.gitlab.com/"  target="_blank" rel="noopener"
+    >https://about.gitlab.com/</a> ）是一个用于仓库管理系统的开源项目，使用Git作为代码管理工具，并在此基础上搭建起来的web服务。</p>
+</li>
+</ol>
+<h2 id="git的基本使用">Git的基本使用
+</h2><h3 id="git工作区暂存区和版本库">git工作区、暂存区和版本库
+</h3><ul>
+<li>
+<p>工作区：工作区是你在本地计算机上的项目目录，你在这里进行文件的创建、修改和删除操作。工作区包含了当前项目的所有文件和子目录。</p>
+</li>
+<li>
+<p>暂存区：英文叫 stage 或 index。一般存放在 <strong>.git</strong> 目录下的 index 文件（.git/index）中，所以我们把暂存区有时也叫作**索引*（index）。暂存区是一个临时存储区域，它包含了即将被提交到版本库中的文件快照，在提交之前，你可以选择性地将工作区中的修改添加到暂存区。</p>
+</li>
+<li>
+<p>工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。版本库包含项目的所有版本历史记录。每次提交都会在版本库中创建一个新的快照，这些快照是不可变的，确保了项目的完整历史记录。版本库分为<strong>本地版本库</strong>和<strong>远程版本库</strong>。这里主要指本地版本库。</p>
+<img src="2.jpg"  />
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>图中左侧为工作区，右侧为版本库。在版本库中标记为 &ldquo;index&rdquo; 的区域是暂存区（stage/index），标记为 &ldquo;master&rdquo; 的是 master分支所代表的目录树。</li>
+<li><strong>&ldquo;HEAD&rdquo;</strong> 实际是指向 master 分支的一个&quot;游标/指针&quot;。所以图示的命令中出现HEAD的地方可以用master来替换。</li>
+<li>图中的objects标识的区域为Git的对象库，实际位于&quot;.git/objects&quot;目录下，里面包含了创建的各种对象及内容。</li>
+<li>当对工作区修改（或新增）的文件执行 <strong>git add</strong> 命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID被记录在暂存区的文件索引中。</li>
+<li>当执行提交操作<strong>git commit</strong>时，暂存区的目录树写到版本库（对象库）中，master 分支会做相应的更新。即master指向的目录树就是提交时暂存区的目录树。</li>
+<li>当执行<strong>git reset HEAD</strong>命令时，暂存区的目录树会被重写，被master分支指向的目录树所替换，但是工作区不受影响。</li>
+<li>当执行<strong>git rm &ndash;cached filename</strong>命令时，会直接从暂存区删除文件，工作区则不做出改变。</li>
+<li>当执行<strong>git checkout .</strong> 或者<strong>git checkout &ndash; filename</strong>命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区中的改动。</li>
+<li>当执行 <strong>git checkout HEAD .</strong> 或者 <strong>git checkout HEAD filename</strong> 命令时，会用HEAD指向的master分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。</li>
+</ul>
 </blockquote>
-<h2 id="tables">Tables
-</h2><p>Tables aren&rsquo;t part of the core Markdown spec, but Hugo supports supports them out-of-the-box.</p>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Age</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Bob</td>
-<td>27</td>
-</tr>
-<tr>
-<td>Alice</td>
-<td>23</td>
-</tr>
-</tbody>
-</table></div>
-<h4 id="inline-markdown-within-tables">Inline Markdown within tables
-</h4><div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Italics</th>
-<th>Bold</th>
-<th>Code</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>italics</em></td>
-<td><strong>bold</strong></td>
-<td><code>code</code></td>
-</tr>
-</tbody>
-</table></div>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-<th>E</th>
-<th>F</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-<td>Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex.</td>
-<td>Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus</td>
-<td>Proin sit amet velit nec enim imperdiet vehicula.</td>
-<td>Ut bibendum vestibulum quam, eu egestas turpis gravida nec</td>
-<td>Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien</td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="code-blocks">Code Blocks
-</h2><h4 id="code-block-with-backticks">Code block with backticks
-</h4><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!doctype html&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Example HTML5 Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Test<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="code-block-indented-with-four-spaces">Code block indented with four spaces
-</h4><pre><code>&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;title&gt;Example HTML5 Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;p&gt;Test&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h4 id="code-block-with-hugos-internal-highlight-shortcode">Code block with Hugo&rsquo;s internal highlight shortcode
-</h4><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!doctype html&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Example HTML5 Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Test<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></span></span></code></pre></td></tr></table>
-</div>
-</div>
-<h4 id="diff-code-block">Diff code block
-</h4><div class="highlight"><div class="chroma">
+<h3 id="git常用的基本操作命令">git常用的基本操作命令
+</h3><p><code>git clone</code>：将远程仓库中内容克隆到本地（可以ssh或http）。默认会自动创建一个名为orgin的远程仓库；并在本地仓库生成一个默认的主干分支，自动追踪远程origin/main。</p>
+<p>注意：远程仓库的默认名称是origin（在.git下的config文件中可以更改）</p>
+<p>更改远程的默认仓库名：修改config文件</p>
+<img src="1.png" style="zoom:80%;" />
+<p><code>git log</code>：查看git日志</p>
+<img src="2.png" style="zoom:80%;" />
+<p><code>git branch</code>：查看本地当前分支</p>
+<p><code>-r</code>：查看远程分支</p>
+<p><code>-a</code>：同时查看本地分支和远程分支</p>
+<p><code>-vv</code>：查看分支追踪关系</p>
+<img src="3.png" style="zoom:80%;" />
+<p><code>git status</code>：查看当前状态</p>
+<p><code>git add filename或.</code>：将工作区的代码改动（某个文件或全部内容），提交到暂存区中</p>
+<img src="4.png" style="zoom:80%;" />
+<p><code>git commit -m “说明内容”</code>：将暂存区的改动提交到本地仓库的代码分支（当前是main分支）</p>
+<img src="5.png" style="zoom:80%;" />
+<p>此时本地仓库分支新于远程仓库分支</p>
+<img src="6.png" style="zoom:80%;" />
+<p><code>git push origin main:main</code>：（前面一个是本地分支，后面一个是远程分支，两者相同，可以省略一个）：将本地仓库分支的内容推送到远程仓库中</p>
+<img src="7.png" style="zoom:80%;" />
+<p>查看此时日志信息</p>
+<img src="8.png" style="zoom:80%;" />
+<p><code>git pull</code>：拉取远程仓库中的分支，经常git pull是一个好习惯</p>
+<p><strong>HEAD指针</strong>：本地仓库每一个分支上的代码修改都会生成一个commit id信息，HEAD指针指向最近一次的commit提交，通过这个commit id可以进行版本回退</p>
+<p>整个流程：</p>
+<img src="9.png" style="zoom: 60%;" />
+<h3 id="git各阶段版本回退命令">git各阶段版本回退命令
+</h3><ul>
+<li>
+<p>工作区的修改没有add：比如修改main.txt后不想修改了：<code>git checkout -- main.txt或.</code>（用本地仓库/分支的内容覆盖当前工作区的内容）</p>
+<img src="2.1.png" style="zoom:80%;" />
+</li>
+<li>
+<p>已经将工作区的改动add到暂存区：<code>git reset HEAD</code>（取消暂存区的修改，但<strong>文件内容的改动还在</strong>）</p>
+<img src="2.2.png" style="zoom:80%;" />
+</li>
+<li>
+<p>已经将暂存区的改动commit到本地仓库：<code>git reset --hard commit-ID</code>（本质是<strong>移动了HEAD指针</strong>）</p>
+<p>​	<img src="2.3.png" style="zoom:80%;" /></p>
+</li>
+<li>
+<p>此时的状态，回退成功（但此时<strong>工作区的修改已经不存在</strong>了）</p>
+<img src="2.4.png" style="zoom:80%;" />
+<img src="2.5.png" style="zoom:80%;" />
+</li>
+<li>
+<p><code>git reflog</code>：可以查看HEAD指针的改动日志，并返回原状态，还是用<code>git reset --hard commit-ID</code>命令</p>
+<img src="2.6.png" style="zoom:80%;" />
+</li>
+<li>
+<p>状态还原（打出commit-ID前几位即可）：</p>
+<img src="2.7.png" style="zoom:80%;" />
+</li>
+<li>
+<p>回退已经提交到远程仓库的内容</p>
+<ul>
+<li>先回退本地仓库，再强制更新远程仓库：重新走一遍流程后再push到远程仓库（<strong>本地仓库版本落后于远程仓库版本会push失败</strong>，更新才会push成功）</li>
+<li>需要用<code>git push -f origin main</code>（-f强制推送）</li>
+<li><code>git diff HEAD -- main.txt</code>：查看工作区文件和仓库中该文件最新版本代码有何区别</li>
+</ul>
+</li>
+</ul>
+<h3 id="团队中代码提交冲突的解决方案">团队中代码提交冲突的解决方案
+</h3><p>团队开发中常见场景：</p>
+<img src="3.1.png" style="zoom: 50%;" />
+<p>小张此时push会冲突：</p>
+<img src="3.2.png" style="zoom: 60%;" />
+<ul>
+<li>
+<p>如果可以自动合并（两人修改的位置不同）：此时需要先git pull，会自动合并阿亮的代码。然后在小张再push一次即可成功</p>
+<img src="3.3.png" style="zoom: 60%;" />
+</li>
+<li>
+<p>如果不能自动合并（两人修改的位置有冲突）：小张git pull，但自动合并会冲突（此时需要<strong>手动解决冲突</strong>）</p>
+<img src="3.4.png" style="zoom: 60%;" />
+<ul>
+<li>
+<p>git会帮助生成冲突的辅助信息</p>
+<img src="3.5.png" style="zoom: 40%;" />
+</li>
+<li>
+<p>手动解决冲突后，此时可以add、commit和push</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="git分支版本控制命令">git分支版本控制命令
+</h3><h4 id="本地分支管理">本地分支管理
+</h4><p>开发人员应该在本地多建立分支，在新分支上开发，再合并到指定的代码仓库中</p>
+<ul>
+<li>
+<p>创建并切换分支：<code>git checkout -b newbranch</code></p>
+<img src="4.1.png" style="zoom: 80%;" />
+</li>
+<li>
+<p>但此时没有追踪关系，无法<code>git pull</code></p>
+<img src="4.2.png" style="zoom:80%;" />
+</li>
+<li>
+<p>切换分支命令：<code>git checkout main</code></p>
+<img src="4.3.png" style="zoom: 80%;" />
+</li>
+<li>
+<p>此时修改main.txt文件，但push会失败</p>
+<img src="4.4.png" style="zoom:80%;" />
+</li>
+<li>
+<p>需要在main分支将newbranch分支合并过来（直接合并到本地仓库）：<code>git merge newbranch</code></p>
+<img src="4.5.png" style="zoom:80%;" />
+</li>
+<li>
+<p>此时push才可以成功</p>
+<img src="4.6.png" style="zoom: 80%;" />
+</li>
+<li>
+<p>此时可以删除newbranch分支（只有merge合并到main分支-d才能删除成功）：<code>git branch -d newbranch</code>（-D 强制删除）</p>
+<img src="4.7.png" style="zoom: 80%;" />
+</li>
+<li>
+<p>（另一种方案）直接从new分支(sortdev)推送到远端master分支</p>
+<img src="4.8.png" style="zoom: 67%;" />
+</li>
+</ul>
+<h4 id="合并分支冲突">合并分支冲突
+</h4><p>上一小节把newbranch分支合并到main分支上时一切顺利，是因为newbranch分支在合并的时候，main分支没有做过任何改动</p>
+<ul>
+<li>实际上有可能发生这样的情况：</li>
+</ul>
+<ol>
+<li>
+<p>啊亮从master分支创建了一个新的分支sortdev01，进行代码开发测试，提交</p>
+</li>
+<li>
+<p>小张更新了master分支上的代码</p>
+</li>
+<li>
+<p>啊亮切换分支到master，git pull同步远程仓库master主干的最新代码，发现有变化</p>
+</li>
+<li>
+<p>啊亮直接git merge sortdev01就发生冲突了（无法合并）</p>
+<img src="5.1.png" style="zoom: 60%;" />
+</li>
+</ol>
+<ul>
+<li>
+<p>冲突如下：只能手动修改</p>
+<img src="5.2.png" style="zoom: 67%;" />
+</li>
+<li>
+<p>此时小张回到main分支做merge会冲突（自动合并失败，修改位置冲突）——只能手动解决</p>
+<img src="5.3.png" style="zoom: 67%;" />
+</li>
+<li>
+<p>查看冲突内容</p>
+<img src="5.5.png" style="zoom: 50%;" />
+</li>
+<li>
+<p>手动解决冲突后，再add，commit和push，成功</p>
+<img src="5.4.png" style="zoom: 50%;" />
+</li>
+</ul>
+<h4 id="远程分支管理">远程分支管理
+</h4><p>在github上创建一个代码仓库，默认就拉了一个master主干分支，在master主干分支上开发了一期项目以后，再进行二期开发的时候，可以再拉一个dev分支出来，大家都在dev分支上开发，此时项目管理员可以把master分支的写权限关掉，因为一期功能开发验证完成，很稳定，此时可以拉取master代码，不能再push推送代码到master分支。</p>
+<p>一般远程分支的创建都是由项目管理员来创建的，其它员工没有创建远程分支的权限，而且每一个远程分支的读写权限也都是由管理员来控制的。</p>
+<ul>
+<li>
+<p>创建远程分支（管理员才有权限），在这个新分支上开发新的功能，此时老分支不能再修改</p>
+<img src="6.1.png" style="zoom:67%;" />
+</li>
+<li>
+<p>此时pull会到新的开发分支上</p>
+<img src="6.2.png" style="zoom:67%;" />
+</li>
+<li>
+<p>追踪关系如下：</p>
+<img src="6.3.png" style="zoom:67%;" />
+</li>
+<li>
+<p>需要创建一个本地分支（最好和远端的新分支名称相同）：<code>git checkout -b dev01</code>（此时没有任何追踪关系）</p>
+</li>
+<li>
+<p>创建本地分支并添加追踪关系：<code>git checkout -b dev01 origin/dev01</code></p>
+<img src="6.4.png" style="zoom:67%;" />
+</li>
+<li>
+<p>push到远端dev01分支上</p>
+<img src="6.5.png" style="zoom:67%;" />
+</li>
+<li>
+<p>设置已经存在的本地分支追踪哪个远程分支：<code>git branch -u &lt;远程仓库名&gt;/&lt;远程分支名&gt;</code></p>
+</li>
+</ul>
+<h2 id="gitignore">gitignore
+</h2><p>gitignore忽略某些文件的版本跟踪，指有意忽略的未跟踪文件。</p>
+<p>在项目中，并不是所有文件都要保存到版本库中，如日志文件、临时文件及工具生成的文件等。</p>
+<p>注意：未跟踪，指的是之前没有被添加到版本库。否则这种用法是无效的。</p>
+<ul>
+<li>使用方法：</li>
+</ul>
+<ol>
+<li>在项目根目录创建.gitignore文件</li>
+<li>用文本编辑器打开文件，进行配置——每项配置独占一行；每行的内容可以是：文件/目录的名称、路径或它们的模式匹配（regex）</li>
+</ol>
+<ul>
+<li>gitignore的匹配模式</li>
+</ul>
+<blockquote>
+<ol>
+<li>
+<p>空行不匹配任何文件，因此常用作分隔符（以方便阅读）</p>
+</li>
+<li>
+<p>#用于注释，\表示转义（如需使用实体\，则要加引号&quot;\”）</p>
+</li>
+<li>
+<p>*可以匹配任何字符（0或多次），？可以匹配任何字符（1次）（注意：它们都不可以匹配/）</p>
+</li>
+<li>
+<p>/用于分隔目录</p>
+<ul>
+<li>
+<p>当/在开头时，表示从.gitignore文件所在目录开始匹配。否则，下级都将匹配</p>
+</li>
+<li>
+<p>当/在末尾时，只匹配目录，否则，则同名的目录和文件都将匹配</p>
+</li>
+</ul>
+</li>
+<li>
+<p>原先被排除的文件，使用!模式后该文件将会重新被包含。但如果了该文件的父级目录被排除了，那么使用!也不会再次被包含</p>
+</li>
+<li>
+<p>[]通常用于匹配一个字符列表，如：a[mn]z可匹配amz和anz</p>
+</li>
+<li>
+<p>**用于匹配多级目录，如a/**/b可匹配&quot;a/b&quot;，&ldquo;a/x/b&rdquo;，&ldquo;a/x/y/b&quot;等</p>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li>举例</li>
+</ul>
+<ol>
+<li>忽略所有内容：*</li>
+<li>忽略所有目录：*/</li>
+<li>忽略public目录下的所有内容，不包括favicon.ico文件：
+<ul>
+<li>public/*#不能把目录本身也排除了</li>
+<li>!public/favicon.ico</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>
+<p>检查自己写的ignore规则是否有效：<code>git check-ignore -v {文件或目录路径}</code>——有输出证明被忽略</p>
+</li>
+<li>
+<p>.gitignore只能忽略那些没有被追踪的文件，所以<strong>先纳入版本管理后写入.gitignore是无效的</strong></p>
+<ul>
+<li>
+<p>解决方案：先删除本地缓存，之后再加入</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl">[dependencies.bevy]
-</span></span><span class="line"><span class="cl">git = &#34;https://github.com/bevyengine/bevy&#34;
-</span></span><span class="line"><span class="cl">rev = &#34;11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13&#34;
-</span></span><span class="line"><span class="cl"><span class="gd">- features = [&#34;dynamic&#34;]
-</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+ features = [&#34;jpeg&#34;, &#34;dynamic&#34;]
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git rm x-r --cached .
+</span></span><span class="line"><span class="cl">git add. 
+</span></span><span class="line"><span class="cl">git status
+</span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="list-types">List Types
-</h2><h4 id="ordered-list">Ordered List
-</h4><ol>
-<li>First item</li>
-<li>Second item</li>
-<li>Third item</li>
-</ol>
-<h4 id="unordered-list">Unordered List
-</h4><ul>
-<li>List item</li>
-<li>Another item</li>
-<li>And another item</li>
-</ul>
-<h4 id="nested-list">Nested list
-</h4><ul>
-<li>Fruit
-<ul>
-<li>Apple</li>
-<li>Orange</li>
-<li>Banana</li>
-</ul>
-</li>
-<li>Dairy
-<ul>
-<li>Milk</li>
-<li>Cheese</li>
+</div></li>
 </ul>
 </li>
 </ul>
-<h2 id="other-elements--abbr-sub-sup-kbd-mark">Other Elements — abbr, sub, sup, kbd, mark
-</h2><p><abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.</p>
-<p>H<sub>2</sub>O</p>
-<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
-<p>Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.</p>
-<p>Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.</p>
-<h2 id="hyperlinked-image">Hyperlinked image
-</h2><p><a class="link" href="https://google.com"  target="_blank" rel="noopener"
-    ><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="Google"
-	
-	
-></a></p>
-<div class="footnotes" role="doc-endnotes">
-<hr>
+<h2 id="企业开发中git的工作流">企业开发中Git的工作流
+</h2><blockquote>
+<p>项目代码远程仓库的分支：master主干分支 dev开发分支 release发布分支</p>
+<p>个人开发分支：feature特性分支 bugfix缺陷修改分支 hotfix热更新分支（旧的发表分支出现问题）</p>
+</blockquote>
+<img src="7.1.png" style="zoom:50%;" />
+<p>一般git的工作流程如下（例如dev开发阶段，其他阶段同理）：</p>
 <ol>
-<li id="fn:1">
-<p>The above quote is excerpted from Rob Pike&rsquo;s <a class="link" href="https://www.youtube.com/watch?v=PAAkCSZUG1c"  target="_blank" rel="noopener"
-    >talk</a> during Gopherfest, November 18, 2015.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li>
+<p>创建个人本地开发分支：<code>git checkout-b feature/add_new_line origin/dev</code></p>
+<img src="7.2.png" style="zoom:70%;" />
+</li>
+<li>
+<p>随时<code>git pull</code>：比较好的习惯，保证本地分支和远程分支的最新代码保持同步</p>
+</li>
+<li>
+<p>在本地分支feature/add_new_line上开发代码（add/commit），随时git pull（<strong>开发过程中可能有其他人提交</strong>）</p>
+<img src="7.3.png" style="zoom:70%;" />
+</li>
+<li>
+<p>个人本地分支推送到远程分支：<code>git push origin feature/add_new_line:feature/add_new_line_v1.0</code>（会在远程代码仓库中新建一个<code>feature/add_new_line_v1.0</code>分支）</p>
+<p><img src="7.4.png" style="zoom:60%;" /><img src="7.5.png" style="zoom:60%;" /></p>
+</li>
+<li>
+<p>提交个人远程代码分支和目标代码合入分支的MR（合并请求），相关负责人进行CR（Code Review）代码评审（代码评审工具：gitlab/gerrit）</p>
+<img src="7.6.png" style="zoom:60%;" />
+</li>
+<li>
+<p>相关负责人提出意见，本地修改相应的代码，推送到对应的远程代码分支上（git pull，如果有冲突手动解决）</p>
+<img src="7.7.png" style="zoom:60%;" />
+</li>
+<li>
+<p>代码CR意见处理完，相关负责人进行代码merge合并，代码修改从<code>feature/add_new_line_v1.0</code>合入dev分支完成</p>
+</li>
+<li>
+<p>删除个人远程代码分支：<code>git push origin [空格]:feature/add_new_line_v1.0</code></p>
 </li>
 </ol>
-</div>
+
 </section>
 
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/tags/markdown/">Markdown</a>
-        
-            <a href="/tags/css/">Css</a>
-        
-            <a href="/tags/html/">Html</a>
-        
-            <a href="/tags/themes/">Themes</a>
-        
-    </section>
-
 
     
     <section class="article-copyright">
@@ -714,39 +837,6 @@
     
 
     
-
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/p/markdown-syntax-guide/">
-        
-        
-            <div class="article-image">
-                <img src="/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.c514d916917173a48a42e0114b469961_hu7626638945853200361.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Markdown Syntax Guide"
-                        
-                        data-hash="md5-xRTZFpFxc6SKQuARS0aZYQ==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Markdown Syntax Guide</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
 
      
     
@@ -798,8 +888,10 @@
     <footer class="site-footer">
     <section class="copyright" style="color: #eb7332; font-weight: bold;">
         &copy;
+        </span>
+        2024 -
         
-        2024 Diverma-马英洲-东南大学
+        2025 Diverma-马英洲-东南大学
         
         
         
@@ -828,7 +920,7 @@
         
         <br>
         共发表8篇文章 ·
-        总计2.65k字
+        总计9.08k字
         <br>
         <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
         <br>
@@ -837,7 +929,7 @@
             var now = new Date();
             function createtime() {
                 now.setTime(now.getTime() + 250); 
-                var grt = new Date("2024/1/1 00:00:00"); 
+                var grt = new Date("2024/11/11 00:00:00"); 
                 days = (now - grt) / 1000 / 60 / 60 / 24;
                 dnum = Math.floor(days);
                 hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
